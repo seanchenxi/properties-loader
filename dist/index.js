@@ -18,9 +18,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function propertiesLoader(source) {
   const options = (0, _loaderUtils.getOptions)(this) || {};
   (0, _schemaUtils.default)(_options.default, options, 'Properties Loader');
-  const isFlatten = options.style === 'flatten';
 
-  const obj = _properties.default.parse(source, {});
+  const obj = _properties.default.parse(source, {
+    namespaces: options.style !== 'flatten',
+    include: true
+  });
 
   const json = JSON.stringify(obj).replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
   return `export default ${json}`;
