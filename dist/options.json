@@ -1,0 +1,9 @@
+{
+    "additionalProperties": true,
+    "properties": {
+        "style": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
