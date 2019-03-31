@@ -29,9 +29,8 @@
     "security": "npm audit",
     "defaults": "webpack-defaults"
   },
-  "files": [
-    "dist/"
-  ],
+  "files": [ "dist/" ],
+  "types": "dist/index",
   "dependencies": {
     "loader-utils": "^1.2.3",
     "properties": "^1.2.1",

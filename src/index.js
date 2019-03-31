@@ -1,4 +1,4 @@
-import { getOptions } from 'loader-utils';
+import {getOptions} from 'loader-utils';
 
 import validateOptions from 'schema-utils';
 
@@ -11,9 +11,10 @@ export default function propertiesLoader(source) {
 
   validateOptions(schema, options, 'Properties Loader');
 
-  const isFlatten = options.style === 'flatten';
-
-  const obj = Properties.parse(source, {});
+  const obj = Properties.parse(source, {
+    namespaces: options.style !== 'flatten',
+    include: true,
+  });
   const json = JSON.stringify(obj)
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');
